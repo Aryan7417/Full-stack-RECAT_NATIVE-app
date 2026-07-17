@@ -102,3 +102,8 @@ app.get("/api/favorites/:userId",async (req,res)=>{
 app.listen(PORT, () => {
     console.log("server isa running PORT 5001")
 })
+
+
+
+
+console.log("hello workd")
