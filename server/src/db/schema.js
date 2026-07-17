@@ -1,5 +1,5 @@
 import { pgTable,serial,text,timestamp,integer } from 'drizzle-orm/pg-core'
-import { createRef } from 'react'
+
 
 
 export const favoritesTable = pgTable("fevorits",{
