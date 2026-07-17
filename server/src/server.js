@@ -72,6 +72,25 @@ app.delete("/api/favorites/:userId/:reciopeid", async (req, res) => {
 
 
 
+app.get("/api/favorites/:userId",async (req,res)=>{
+    try {
+        const {userId}=req.params
+        
+
+        const userfavorate = await db
+        .select()
+        .from(favoritesTable)
+        .where(eq(favoritesTable.userId,userId))
+
+        res.status(200).json(userfavorate)
+        
+    } catch (error) {
+        console.log("Error fetching the favrotes ",error)
+        res.status(500).json({error:"something wwent wrong"})
+        
+    }
+} ) 
+
 
 
 
