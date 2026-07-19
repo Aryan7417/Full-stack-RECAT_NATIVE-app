@@ -3,7 +3,7 @@ import { COLORS } from "../../constants/colors.js";
 
 const { height } = Dimensions.get("window");
 
-export const authStyles = StyleSheet.create({
+export const AuthStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
@@ -17,8 +17,8 @@ export const authStyles = StyleSheet.create({
     paddingTop: 40,
   },
   imageContainer: {
-    height: height * 0.3,
-    marginBottom: 30,
+    height: height * 0.5,
+    marginBottom: 28,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -27,7 +27,7 @@ export const authStyles = StyleSheet.create({
     height: 320,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "bold",
     color: COLORS.text,
     textAlign: "center",
@@ -43,18 +43,19 @@ export const authStyles = StyleSheet.create({
     flex: 1,
   },
   inputContainer: {
-    marginBottom: 20,
+    marginBottom: 28,
     position: "relative",
   },
   textInput: {
     fontSize: 16,
     color: COLORS.text,
     paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingHorizontal: 100,
     backgroundColor: COLORS.background,
     borderRadius: 12,
     borderWidth: 1,
     borderColor: COLORS.border,
+    margin:10
   },
   eyeButton: {
     position: "absolute",
