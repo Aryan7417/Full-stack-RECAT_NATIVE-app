@@ -1,6 +1,6 @@
 import { View, Text, Alert, FlatList, KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { useRoute } from 'expo-router'
+import { useRouter } from "expo-router";
 import { useSignIn } from '@clerk/clerk-expo';
 import { AuthStyles } from '../../../assets/styles/auth.style.js'
 import { Image } from 'expo-image'
@@ -8,7 +8,7 @@ import { COLORS } from '../../../constants/colors.js';
 import { Ionicons } from "@expo/vector-icons";
 const sign_in = () => {
 
-  const router = useRoute();
+  const router = useRouter();
   const { signIn, setActive, isLoaded } = useSignIn()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -51,6 +51,7 @@ const sign_in = () => {
       <KeyboardAvoidingView
         style={AuthStyles.keyboardView}
         behavior={Platform.OS === "android" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 64 :0 }
       >
 
         <ScrollView
@@ -105,18 +106,38 @@ const sign_in = () => {
 
                   </TouchableOpacity>
                 </View>
+                <TouchableOpacity
+                style={[AuthStyles.authButton, loading && AuthStyles.buttonDisabled]}
+                onPress={handelSignIn}
+                disabled={loading}
+                activeOpacity={0.8}
+                >
+                  <Text style={AuthStyles.buttonText}>{loading ? "Signing In ...": "Sing in"}</Text>
+                </TouchableOpacity>
 
 
+
+                {/* sing up in link */}
+
+                
+                <TouchableOpacity
+                style={AuthStyles.linkContainer}
+                onPress={() =>router.push("/(auth)/sing-up")}
+                >
+
+                  <Text style={AuthStyles.linkText}>
+                    Don&apos;t have an account? <Text style={AuthStyles.link} >Sign up</Text> 
+                  </Text>
+
+                
+                </TouchableOpacity>
 
               </View>
 
             </View>
           </View>
-
         </ScrollView>
-
       </KeyboardAvoidingView>
-
     </View>
   )
 }
