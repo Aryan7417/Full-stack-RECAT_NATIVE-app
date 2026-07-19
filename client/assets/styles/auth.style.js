@@ -13,7 +13,7 @@ export const AuthStyles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
     paddingTop: 40,
   },
   imageContainer: {
